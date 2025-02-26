@@ -1,0 +1,168 @@
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Press Start 2P', cursive; /* Fuente urbana */
+    overflow: hidden; /* Evita el desplazamiento no deseado */
+}
+
+/* Fondo animado */
+body {
+    background-image: url('fondo-productos/fondo-tienda.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de rayos eléctricos */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.8));
+    animation: neonGlow 5s infinite alternate;
+    z-index: -1;
+    will-change: transform, opacity; /* Optimiza las animaciones */
+}
+
+@keyframes neonGlow {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Efecto de rayos eléctricos */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.466), rgba(0, 0, 0, 0));
+    animation: rayosElectricos 3s infinite linear;
+    z-index: -1;
+}
+
+@keyframes rayosElectricos {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+/* Encabezado con el título */
+header {
+    height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo del título */
+h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; /* Efecto neón */
+    animation: titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+    100% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+    }
+}
+
+/* Efecto al pasar el mouse sobre el título */
+h1:hover {
+    transform: scale(1.1);
+}
+
+/* Sección de productos */
+#productos {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Oculta el desbordamiento de los productos */
+}
+
+/* Contenedor de productos */
+.contenedor-productos {
+    display: flex;
+    animation: desplazarProductos 30s linear infinite; /* Animación de desplazamiento */
+    gap: 10px; /* Espacio entre productos */
+    padding: 10px; /* Espacio interno */
+    align-items: center; /* Alinea los productos verticalmente */
+    width: max-content; /* El contenedor ocupa solo el espacio necesario */
+}
+
+/* Estilo de los productos */
+.producto {
+    flex: 0 0 auto;
+    margin: 10px;
+    text-align: center;
+    transform-style: preserve-3d;
+    will-change: transform; /* Optimiza la rotación */
+}
+
+.producto img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.producto p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Efecto neón en el texto */
+}
+
+/* Animación de desplazamiento */
+@keyframes desplazarProductos {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Animación de rotación */
+@keyframes rotarProductos {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
