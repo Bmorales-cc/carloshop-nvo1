@@ -9,7 +9,7 @@ body, html {
 
 /* Fondo animado */
 body {
-    background-image: url('fondo-productos/fondo-tienda.jpg'); /* Imagen de fondo */
+    background-image: url('fondo-productos/fondo-tienda.png'); /* Imagen de fondo */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
