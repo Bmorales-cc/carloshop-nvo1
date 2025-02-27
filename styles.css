@@ -123,6 +123,7 @@ h1:hover {
     padding: 10px; /* Espacio interno */
     align-items: center; /* Alinea los productos verticalmente */
     width: max-content; /* El contenedor ocupa solo el espacio necesario */
+    overflow: visible; /* Permite que las imágenes agrandadas no se corten */
 }
 
 /* Estilo de los productos */
@@ -133,7 +134,24 @@ h1:hover {
     transform-style: preserve-3d;
     will-change: transform; /* Optimiza la rotación */
 }
-
+/* Efecto al pasar el mouse sobre la imagen */
+.producto:hover {
+    transform: scale(1.1); /* Agrandar la imagen */
+    z-index: 2; /* Asegura que la imagen agrandada esté por encima de las demás */
+}
+/* Efecto de barras de las Mac */
+.producto:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to right, rgba(0, 255, 0, 0.5), rgba(0, 255, 0, 0.8));
+    border-radius: 50%;
+    filter: blur(5px);
+}
 .producto img {
     width: 150px;
     height: 150px;
